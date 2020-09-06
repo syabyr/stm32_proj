@@ -5,8 +5,8 @@
 //
 /////////////////////////////////////////////////////////////////////////////////
 
-#ifndef __BMP_H
-#define __BMP_H
+#ifndef __BMP_H__
+#define __BMP_H__
 
 //87x64
 unsigned char YANG[] =

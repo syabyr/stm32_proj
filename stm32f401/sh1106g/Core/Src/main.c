@@ -22,7 +22,8 @@
 #include "i2c.h"
 #include "usart.h"
 #include "gpio.h"
-#include "sh1106g.h"
+//#include "sh1106g.h"
+#include "sh1107.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -104,13 +105,14 @@ int main(void)
     result = HAL_I2C_Mem_Read(&hi2c1,(i<<1)|1,0x00,I2C_MEMADD_SIZE_8BIT,read_buf1,8,0xff);
     if(0 == result)
     {
-      printf("scaned:0x%x\r\n",i);
+      printf("scaned:0x%x\r\n",(i<<1)|1);
     }
     else
     {
-      printf("error:%d\r\n",result);
+      //printf("error:%d\r\n",result);
     }
   }
+  /*
   sh1106g_init();
   sh1106g_cls();
   sh1106g_fill(0x0f);
@@ -122,6 +124,11 @@ int main(void)
   sh1106g_showstr(0,6,"1234547890123456",1);
   sh1106g_showstr(0,7,"1237567890123459",1);
   sh1106g_showstr(0,8,"3234567890623465",1);
+  */
+
+  sh1107_init();
+  sh1107_clear();
+  sh1107_showchar(1,1,'a');
 
 
   /* USER CODE END 2 */
